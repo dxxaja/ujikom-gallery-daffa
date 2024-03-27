@@ -3,7 +3,7 @@
 @section('content')
 
 <section class="py-5 text-center container">
-    <div class="row py-lg-5">
+    <div class="row py-lg-5 shad">
         <div class="col-lg-6 col-md-8 mx-auto">
             <h1 class="fw-light">{{$album->name}}</h1>
             <p class="lead text-muted">{{$album->description}}</p>
@@ -18,7 +18,7 @@
 @if (count($album->photos) > 0)
 <div class="row">
     @foreach ($album->photos as $photo)
-    <div class="col-md-4">
+    <div class="col-md-4 shadow">
         <div class="card" style="width: 18rem;">
             <img src="/storage/albums/{{$album->id}}/{{$photo->photo}}" height="200px" class="card-img-top" alt="photo Image">
             <div class="card-body">

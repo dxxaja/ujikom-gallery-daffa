@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>DXX Memorys</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -25,7 +25,7 @@
 <body>
     <body>
         <div id="app">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+            <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #7AA2E3">
                 <div class="container-fluid">
                   <a class="navbar-brand" href="#">DX Memory's gallery  |</a>
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,13 +50,13 @@
                                     @csrf
                                 </form>
                                 <a class="nav-link" href="{{ route('login') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    <button type="button" class="btn btn-info">Logout</button>
+                                    Logout
                                 </a>
                             </li>
                     </div>
               </nav>
 
-            <main class="py-4">
+            <main class="py-4" style="background-color: #F8F6E3">
             <div class="container">
                 @include('inc.messages')
                 @yield('content')

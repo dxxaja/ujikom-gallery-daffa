@@ -5,7 +5,7 @@
 <h1> My memory </h1>
 <div class="row">
     @foreach ($albums as $album)
-        <div class="col-md-4">
+        <div class="col-md-4 shadow">
             <div class="card" style="width: 18rem;">
                 <img src="/storage/album_covers/{{$album->cover_image}}" height="200px" class="card-img-top" alt="Album Image">
                 <div class="card-body">
