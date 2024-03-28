@@ -21,18 +21,18 @@ class LikeController extends Controller
 
         if ($existingLike) {
             $existingLike->delete();
-            return response()->json(['message' => 'Photo unliked successfully']);
+            return redirect('/albums')->with(['message' => 'Photo unliked successfully']);
         } else {
             $like = new Like();
             $like->user_id = $user->id;
             $like->photo_id = $photo->id;
             $like->save();
 
-            return response()->json(['message' => 'Photo liked successfully']);
+            return redirect('/albums')->with(['message' => 'Photo liked successfully']);
         }
     }
 
-    return response()->json(['error' => 'Photo or user not found'], 404);
+    return redirect('/albums')->with(['error' => 'Photo or user not found'], 404);
 }
 
 }
