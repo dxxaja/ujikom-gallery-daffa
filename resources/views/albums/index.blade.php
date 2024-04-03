@@ -3,7 +3,15 @@
 @section('content')
 
 <div class="container">
-    <h1>My Memory</h1>
+    <h1 class="❤ text-center container">
+        <strong>My Memory</strong></h1>
+    <section class="py-5 text-center container">
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <a class="btn btn-primary" href="/albums/create">make new Album</a>
+        </div>
+    </section>
+
+
     <div class="row">
         @foreach ($albums as $album)
             <div class="col-md-4 shadow">

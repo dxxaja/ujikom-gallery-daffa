@@ -26,7 +26,7 @@
                 <p class="card-text">{{$photo->description}}</p>
                 <form id="like-form-{{$photo->id}}" method="POST" action="{{ route('likes.toggle', $photo->id) }}">
                     @csrf
-                    <button type="submit" class="btn btn-danger btn-sm card-text float-end">Like</button>
+                    <button type="submit" class="btn btn-danger btn-sm card-text float-end">❤</button>
                 </form>
                 <a href="{{route('photos.show' , $photo->id)}}" class="btn btn-primary float-start">View</a>
             </div>

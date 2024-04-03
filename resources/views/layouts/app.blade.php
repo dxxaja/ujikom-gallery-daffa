@@ -36,9 +36,9 @@
                       <li class="nav-item">
                         <a class="nav-link " aria-current="page" href="/albums"> My Albums</a>
                       </li>
-                      <li class="nav-item">
+                      {{-- <li class="nav-item">
                         <a class="nav-link" href="/albums/create">make new Album</a>
-                      </li>
+                      </li> --}}
                     </ul>
                   </div>
                 </div>
@@ -49,9 +49,9 @@
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
                                 </form>
-                                <a class="nav-link" href="{{ route('login') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <button class="btn btn-primary"  style="background-color: #7AA2E3" href="{{ route('login') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     Logout
-                                </a>
+                                </button>
                             </li>
                     </div>
               </nav>
