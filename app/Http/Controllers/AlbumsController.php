@@ -62,7 +62,7 @@ class AlbumsController extends Controller
         // Hapus album
         $album->delete();
 
-        return redirect('/albums')->with('success', 'Album deleted');
+        return redirect('/albums')->with('danger', 'Album deleted');
     }
 
     // Fungsi untuk mengupload gambar
