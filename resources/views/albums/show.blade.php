@@ -19,17 +19,16 @@
 <div class="row">
     @foreach ($album->photos as $photo)
     <div class="col-md-4 shadow">
-        <div class="card" style="width: 18rem;">
-            <img src="/storage/albums/{{$album->id}}/{{$photo->photo}}" height="200px" class="card-img-top" alt="photo Image">
+        <div class="card" style="width: 20rem;">
+            <img src="/storage/albums/{{$album->id}}/{{$photo->photo}}" height="250px" class="card-img-top" alt="photo Image">
             <div class="card-body">
-                <h5 class="card-title">{{$photo->name}}</h5>
+                <h5 class="card-title">{{$photo->title}}</h5>
                 <p class="card-text">{{$photo->description}}</p>
-                <a href="{{route('photos.show' , $photo->id)}}" class="btn btn-primary">View</a>
-<!-- Tombol Like -->
-<form id="like-form-{{$photo->id}}" method="POST" action="{{ route('likes.toggle', $photo->id) }}">
-    @csrf
-    <button type="submit" class="btn btn-primary" id="like-btn-{{$photo->id}}">Like</button>
-</form>
+                <form id="like-form-{{$photo->id}}" method="POST" action="{{ route('likes.toggle', $photo->id) }}">
+                    @csrf
+                    <button type="submit" class="btn btn-danger btn-sm card text-end" id="like-btn-{{$photo->id}}" >fav</button>
+                </form>
+                <a href="{{route('photos.show' , $photo->id)}}" class="btn btn-primary btn-">View</a>
 
 
                 <!-- Form Komentar -->

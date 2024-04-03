@@ -11,7 +11,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{$album->name}}</h5>
                     <p class="card-text">{{$album->description}}</p>
-                    <a href="{{route('albums.show' , $album->id)}}" class="btn btn-primary">lihat</a>
+                    <a href="{{route('albums.show' , $album->id)}}" class="btn btn-link">lihat</a>
                     <form method="POST" action="{{ route('albums.destroy', $album->id) }}">
                         @csrf
                         @method('DELETE')

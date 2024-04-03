@@ -41,14 +41,6 @@ Route::get('/photo/{photo}', [PhotosController::class, 'show'])->name('photos.sh
 Route::delete('/photo/{id}', [PhotosController::class, 'destroy'])->name('photos.destroy');
 
 
-
-
-// Rute untuk toggle like
-
-
-// Rute untuk toggle like
-
-
 // Rute untuk toggle like
 Route::post('/albums/{photo}/toggle-like', [LikeController::class, 'toggle'])->name('likes.toggle');
 
@@ -56,13 +48,12 @@ Route::post('/albums/{photo}/toggle-like', [LikeController::class, 'toggle'])->n
 Route::get('/albums/{photo}/check-like', [LikeController::class, 'checkLike'])->name('likes.check');
 
 
-
-
+// rute login logout
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-
+// rute register
 Route::get('/register', [AuthController::class, 'register'])->name('auth.register');
 Route::post('/register', [AuthController::class, 'store'])->name('auth.store');
 
