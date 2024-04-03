@@ -19,27 +19,32 @@
 <div class="row">
     @foreach ($album->photos as $photo)
     <div class="col-md-4 shadow">
-        <div class="card" style="width: 20rem;">
+        <div class="card">
             <img src="/storage/albums/{{$album->id}}/{{$photo->photo}}" height="250px" class="card-img-top" alt="photo Image">
             <div class="card-body">
                 <h5 class="card-title">{{$photo->title}}</h5>
                 <p class="card-text">{{$photo->description}}</p>
                 <form id="like-form-{{$photo->id}}" method="POST" action="{{ route('likes.toggle', $photo->id) }}">
                     @csrf
-                    <button type="submit" class="btn btn-danger btn-sm card text-end" id="like-btn-{{$photo->id}}" >fav</button>
+                    <button type="submit" class="btn btn-danger btn-sm card-text float-end">Like</button>
                 </form>
-                <a href="{{route('photos.show' , $photo->id)}}" class="btn btn-primary btn-">View</a>
-
-
-                <!-- Form Komentar -->
-                <form method="POST" action="{{ route('comments.store', $photo->id) }}">
-                    @csrf
-                    <textarea name="content" rows="3" placeholder="Tambahkan komentar"></textarea>
-                    <button type="submit" class="btn btn-success">Komentar</button>
-                </form>
-                <!-- Daftar Komentar -->
+                <a href="{{route('photos.show' , $photo->id)}}" class="btn btn-primary float-start">View</a>
+            </div>
+            <!-- Form Komentar -->
+            <form class="card-footer" method="POST" action="{{ route('comments.store', $photo->id) }}">
+                @csrf
+                <div class="input-group">
+                    <textarea name="content" class="form-control" rows="3" placeholder="Add a comment"></textarea>
+                    <button type="submit" class="btn btn-success">Comment</button>
+                </div>
+            </form>
+            <!-- Daftar Komentar -->
+            <div class="list-group list-group-flush">
                 @foreach ($photo->photoComments as $comment)
-                <p>{{ $comment->user->name }}: {{ $comment->content }}</p>
+                <div class="list-group-item">
+                    <h6 class="list-group-item-heading">{{$comment->user->name}}</h6>
+                    <p class="list-group-item-text">{{$comment->content}}</p>
+                </div>
                 @endforeach
             </div>
         </div>
@@ -54,7 +59,7 @@
 @endsection
 
 @section('scripts')
-{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> --}}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     $(document).ready(function() {
         // Saat dokumen dimuat, periksa apakah pengguna telah memberikan "like" pada setiap foto

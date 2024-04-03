@@ -22,8 +22,8 @@
 
     <title>memory's dx</title>
 </head>
-<body>
-    <body>
+
+    <body style="background-color: #F8F6E3">
         <div id="app">
             <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #7AA2E3">
                 <div class="container-fluid">
@@ -56,7 +56,7 @@
                     </div>
               </nav>
 
-            <main class="py-4" style="background-color: #F8F6E3">
+            <main class="py-4" >
             <div class="container">
                 @include('inc.messages')
                 @yield('content')
