@@ -20,4 +20,8 @@ class Photo extends Model
     public function photoComments(){
         return $this->hasMany(Comment::class);
     }
+
+    public function Like(){
+        return $this->hasOne(Like::class);
+    }
 }

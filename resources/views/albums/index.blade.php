@@ -3,18 +3,19 @@
 @section('content')
 
 <div class="container">
-    <h1 class=" text-center container">
-        <strong>My Memory</strong></h1>
+    <h1 class="text-center container">
+        <strong>My Memory</strong>
+    </h1>
     <section class="py-5 text-center container">
         <div class="d-grid gap-2 col-6 mx-auto">
-            <a class="btn btn-primary" href="/albums/create">make new Album</a>
+            <a class="btn btn-primary" href="/albums/create">Make New Album</a>
         </div>
     </section>
 
-
-    <div class="row">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
         @foreach ($albums as $album)
-            <div class="col-md-4 shadow">
+        <div class="col">
+            <div class="shadow">
                 <div class="card">
                     <img src="/storage/album_covers/{{$album->cover_image}}" height="200px" class="card-img-top" alt="Album Image">
                     <div class="card-body">
@@ -29,8 +30,16 @@
                     </div>
                 </div>
             </div>
+        </div>
         @endforeach
     </div>
+
+    <div class="d-flex justify-content-between mt-4">
+        <p>Showing {{ $albums->firstItem() }} - {{ $albums->lastItem() }} of {{ $albums->total() }} results</p>
+        {{ $albums->links('pagination::bootstrap-4') }}
+    </div>
+
+
 </div>
 
 @endsection

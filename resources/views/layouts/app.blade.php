@@ -25,40 +25,53 @@
 
     <body style="background-color: #F8F6E3">
         <div id="app">
-            <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #7AA2E3">
+            <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #7AA2E3">
                 <div class="container-fluid">
-                  <a class="navbar-brand" href="/albums">DX Memory's gallery ♈|</a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                      <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="/albums"> My Albums</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="/likedphoto"> favorite photo</a>
-                      </li>
-                      {{-- <li class="nav-item">
-                        <a class="nav-link" href="/albums/create">make new Album</a>
-                      </li> --}}
-                    </ul>
-                  </div>
+                    <a class="navbar-brand" href="/albums">DX Memory's gallery ♈|</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="/albums"> My Albums</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="/liked-photo"> favorite photo</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="collapse navbar-collapse justify-content-end">
+                        <!-- Right Side Of Navbar -->
+                        <ul class="navbar-nav">
+                            @guest
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">Login</a>
+                            </li>
+                            @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Welcome, {{ auth()->user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                                    document.getElementById('logout-form').submit();">
+                                        Logout
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                            @endguest
+                        </ul>
+                    </div>
                 </div>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                            <button class="btn btn-primary" style="background-color: #7AA2E3" href="{{ route('login') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                Logout
-                            </button>
-                        </li>
-                    </ul>
-                </div>
-              </nav>
+            </nav>
 
             <main class="py-4" >
             <div class="container">

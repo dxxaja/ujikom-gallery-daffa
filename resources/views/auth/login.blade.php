@@ -1,5 +1,3 @@
-<!-- resources/views/auth/login.blade.php -->
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -60,6 +58,28 @@
         button:hover {
             background-color: #5345a0;
         }
+
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
+
+        .alert-success {
+            color: #155724;
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+
+        .alert-danger {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
     </style>
 </head>
 <body>
@@ -70,6 +90,16 @@
 
         <h2>Login</h2>
 
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <label for="email">Email:</label>
         <input type="email" name="email" id="email" required>
 
@@ -78,7 +108,7 @@
 
         <button type="submit">Login</button>
         <!-- Tautan ke halaman pendaftaran -->
-<p>Belum punya akun? <a href="{{ route('auth.register') }}">Daftar sekarang</a></p>
+        <p>Belum punya akun? <a href="{{ route('auth.register') }}">Daftar sekarang</a></p>
 
     </form>
 

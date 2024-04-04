@@ -15,4 +15,7 @@ class Album extends Model
     {
         return $this->hasMany(Photo::class);
     }
+
+
+    protected static $factory = \Database\Factories\AlbumFactory::class;
 }
