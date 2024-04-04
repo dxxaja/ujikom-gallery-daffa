@@ -42,7 +42,7 @@
             <div class="list-group list-group-flush">
                 @foreach ($photo->photoComments as $comment)
                 <div class="list-group-item">
-                    <h6 class="list-group-item-heading">{{$comment->user->name}}</h6>
+                    <h6 class="list-group-item-heading"><strong>{{$comment->user->name}}</strong></h6>
                     <p class="list-group-item-text">{{$comment->content}}</p>
                 </div>
                 @endforeach

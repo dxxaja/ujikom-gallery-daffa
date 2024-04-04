@@ -60,3 +60,4 @@ Route::post('/register', [AuthController::class, 'store'])->name('auth.store');
 // Route::post('/photos/{photo}/like', [LikeController::class, 'toggle'])->name('likes.toggle');
 Route::post('/photos/{photo}/comments', [CommentController::class, 'store'])->name('comments.store');
 
+Route::get('/liked-photos', 'LikedPhotoController@index')->name('liked_photos.index');

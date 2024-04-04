@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-    <h1 class="❤ text-center container">
+    <h1 class=" text-center container">
         <strong>My Memory</strong></h1>
     <section class="py-5 text-center container">
         <div class="d-grid gap-2 col-6 mx-auto">
